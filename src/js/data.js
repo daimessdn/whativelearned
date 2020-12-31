@@ -2,7 +2,7 @@ const data = [
     {
         title: "Execute Python file on Node.js",
         description: "Want to run Python file using Node.js? Yes, you can!",
-
+        date: "December, 31st 2020",
         content: `
 **Node.js** is a very powerful tool for every single web development purposes. One of the useful function of Node.js is executing **Python** file on website using \`child-process\`.
 

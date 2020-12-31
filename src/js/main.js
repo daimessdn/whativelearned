@@ -10,6 +10,7 @@ data.forEach((post) => {
             <details>
                 <summary class="post-header">
                     <h2>${post.title}</h2>
+                    <p>Published on ${post.date}</p>
                     <p>${post.description}</p>
                 </summary>
 
