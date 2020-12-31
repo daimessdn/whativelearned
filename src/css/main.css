@@ -21,7 +21,7 @@ pre, code {
 }
 
 .content pre {
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 3px;
 }
 
