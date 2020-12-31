@@ -1,6 +1,7 @@
 @media screen and (max-width: 600px) {
-    body, pre {
+    body, .content pre {
         font-size: 14px;
+        text-align: justify;
     }
 
     h2 {
