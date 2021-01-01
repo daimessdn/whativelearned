@@ -27,4 +27,7 @@
     main {
         width: calc(100% - 64px);
     }
+
+    .content {
+    }
 }

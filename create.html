@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title>markdown editor/creator</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/css/main.css">
+
+    <style>
+        input, textarea, button {
+            font: 16px "Space Grotesk";
+        }
+    </style>
+</head>
+<body style="overflow-y: auto;">
+    <form>
+        <label for="title">Title</label><br />
+        <input type="text" name="title" placeholder="Title" size="100"><br />
+
+        <label for="description">Description</label><br />
+        <input type="text" name="description" placeholder="Description" size="100"><br />
+
+        <label for="markdownText">Type markdown text</label><br />
+        <textarea name="markdownText"
+                  rows="40"
+                  cols="100"></textarea><br />
+
+        <button onclick="
+            event.preventDefault();
+
+            let post = {
+                title: document.forms[0].title.value,
+                description: document.forms[0].description.value,
+                content: JSON.stringify(document.forms[0].markdownText.value)
+            };
+
+            document.querySelector('#result').innerHTML = JSON.stringify(post);
+
+            console.log(JSON.stringify(post));
+        ">submit</button>
+    </form>
+
+    <div id="result"></div>
+</body>
+</html>
