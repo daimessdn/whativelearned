@@ -71,6 +71,8 @@ main {
   height: calc(100% - 60px);
   margin: 30px;
   overflow-y: auto;
+  border: 1px solid #29335C;
+
 }
 
 summary {
