@@ -23,8 +23,4 @@
     h6 {
         font-size: 1.1em;
     }
-
-    main {
-        width: calc(100% - 64px);
-    }
 }

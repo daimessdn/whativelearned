@@ -2,7 +2,7 @@
 //// and showdown.js
 const mdToHtml = new showdown.Converter();
 
-const container = document.querySelector("main");
+const container = document.querySelector("main .container");
 
 data.reverse().forEach((post) => {
     container.innerHTML += `
@@ -27,10 +27,10 @@ hljs.initHighlightingOnLoad();
 
 document.addEventListener('DOMContentLoaded', (event) => {
   generateQuotes();
+  
   document.querySelectorAll('pre code').forEach((block) => {
     hljs.highlightBlock(block);
   });
-
 });
 
 const generateQuotes = () => {
@@ -47,5 +47,5 @@ if ("serviceWorker" in navigator) {
         .then(res => console.log("service worker registered"))
         .catch(err => console.log("service worker not registered", err))
     })
-  }
+}
   
