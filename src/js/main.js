@@ -2,7 +2,7 @@
 //// and showdown.js
 const mdToHtml = new showdown.Converter();
 
-const container = document.querySelector("main");
+const container = document.querySelector(".posts");
 
 data.reverse().forEach((post) => {
     container.innerHTML += `
