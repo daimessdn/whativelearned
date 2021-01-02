@@ -38,7 +38,6 @@ const generateQuotes = () => {
     
     document.querySelector("header h2").innerHTML = `"${currentQuote.quotes}"`;
     document.querySelector("header h3").innerHTML = `&#8212; ${currentQuote.by}`;
-<<<<<<< HEAD
 }
 
 if ("serviceWorker" in navigator) {
@@ -50,6 +49,3 @@ if ("serviceWorker" in navigator) {
     })
 }
   
-=======
-}
->>>>>>> parent of ddc1e61... added PWA support
