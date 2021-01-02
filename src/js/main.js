@@ -4,8 +4,8 @@ const mdToHtml = new showdown.Converter();
 
 const container = document.querySelector("main");
 
-data.forEach((post) => {
-    container.innerHTML = `
+data.reverse().forEach((post) => {
+    container.innerHTML += `
         <div class="post">
             <details>
                 <summary class="post-header">

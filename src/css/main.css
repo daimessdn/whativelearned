@@ -6,6 +6,7 @@ body {
   font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
   height: 100%;
+  margin: 0;
   overflow-y: hidden;
 }
 
@@ -59,11 +60,12 @@ summary {
   top: 0;
   line-height: 2;
   outline: none;
+  min-height: 200px;
 
-  background-color: #29335C;
-  color: #FFF;
+  border: 1px solid #29335C;
+  border-left: 10px solid #29335C;
+  background-color: #FFF;
   padding: 10px;
-  border-radius: 10px;
 }
 
 summary h2 {
@@ -80,8 +82,7 @@ details > summary::-webkit-details-marker {
 }
 
 .content {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin: 10px 10px 20px 10px;
 }
 
 .content p {
