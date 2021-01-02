@@ -26,7 +26,16 @@ data.reverse().forEach((post) => {
 hljs.initHighlightingOnLoad();
 
 document.addEventListener('DOMContentLoaded', (event) => {
+  generateQuotes();
   document.querySelectorAll('pre code').forEach((block) => {
     hljs.highlightBlock(block);
   });
+
 });
+
+const generateQuotes = () => {
+    const currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    
+    document.querySelector("header h2").innerHTML = `"${currentQuote.quotes}"`;
+    document.querySelector("header h3").innerHTML = `&#8212; ${currentQuote.by}`;
+}
