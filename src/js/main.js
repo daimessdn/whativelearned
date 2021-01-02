@@ -39,3 +39,13 @@ const generateQuotes = () => {
     document.querySelector("header h2").innerHTML = `"${currentQuote.quotes}"`;
     document.querySelector("header h3").innerHTML = `&#8212; ${currentQuote.by}`;
 }
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker
+        .register("/serviceWorker.js")
+        .then(res => console.log("service worker registered"))
+        .catch(err => console.log("service worker not registered", err))
+    })
+  }
+  

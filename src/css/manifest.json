@@ -1,0 +1,9 @@
+{
+  "name": "whativelearned",
+  "short_name": "whativelearned",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "orientation": "portrait-primary"
+}
