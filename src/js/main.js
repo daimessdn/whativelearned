@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
               </summary>
 
               <article class="content">
-                ${mdToHtml.makeHtml(post.content)}
+                ${post.htmlContent}
               </article>
             </details>
           </div>
