@@ -38,5 +38,9 @@ const quotes = [
   {
     quotes: "Learning is a treasure that will follow its owner everywhere.",
     by: "Chinese Proverb"
+  },
+  {
+    quotes: "Kalau kau datang untuk belajar dengan tersenyum, ilmu akan menyambutmu dengan tertawa.",
+    by: "Andrea Hirata"
   }
 ];
