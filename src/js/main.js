@@ -4,6 +4,20 @@ const mdToHtml = new showdown.Converter();
 
 const container = document.querySelector(".posts");
 
+const generateQuotes = () => {
+    const currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    
+    document.querySelector("header h2").innerHTML = `"${currentQuote.quotes}"`;
+    document.querySelector("header h3").innerHTML = `&#8212; ${currentQuote.by}`;
+};
+
+const generateTags = (tags) => {
+    return tags.reduce((spanTags, tag) => {
+        console.log(spanTags, tag);
+        return spanTags + "<span class=\"tag\">" + tag  + "</span>";
+    }, "");
+};
+
 data.reverse().forEach((post) => {
     container.innerHTML += `
         <div class="post">
@@ -12,6 +26,7 @@ data.reverse().forEach((post) => {
                     <h2>${post.title}</h2>
                     <p>Published on ${post.date}</p>
                     <p>${post.description}</p>
+                    <div class="tags">${generateTags(post.tags)}</div>
                 </summary>
 
                 <article class="content">
@@ -32,13 +47,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     hljs.highlightBlock(block);
   });
 });
-
-const generateQuotes = () => {
-    const currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    
-    document.querySelector("header h2").innerHTML = `"${currentQuote.quotes}"`;
-    document.querySelector("header h3").innerHTML = `&#8212; ${currentQuote.by}`;
-}
 
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
