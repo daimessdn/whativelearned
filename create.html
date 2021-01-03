@@ -1,63 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    <title>markdown editor/creator</title>
+  <title>markdown editor/creator</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/main.css">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        input, textarea, button {
-            font: 16px "Space Grotesk";
-            width: 100%;
-        }
+    form {
+      margin: 20px;
+    }
 
-        textarea {
-            height: 500px;
-        }
-    </style>
+    input, textarea, button {
+      font: 14px "Space Grotesk";
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      height: 10rem;
+    }
+  </style>
 </head>
 <body style="overflow-y: auto;">
-    <form>
-        <label for="title">Title</label><br />
-        <input type="text" name="title" placeholder="Title" size="100"><br />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js" integrity="sha512-L03kznCrNOfVxOUovR6ESfCz9Gfny7gihUX/huVbQB9zjODtYpxaVtIaAkpetoiyV2eqWbvxMH9fiSv5enX7bw==" crossorigin="anonymous"></script>
 
-        <label for="description">Description</label><br />
-        <input type="text" name="description" placeholder="Description" size="100"><br />
+  <form>
+    <label for="title">Title</label><br />
+    <input type="text" name="title" placeholder="Title" size="100"><br />
 
-        <label for="markdownText">Type markdown text</label><br />
-        <textarea name="markdownText"></textarea><br />
+    <label for="description">Description</label><br />
+    <input type="text" name="description" placeholder="Description" size="100"><br />
 
-        <button onclick="
-            event.preventDefault();
+    <label for="description">Tags</label><br />
+    <input type="text" name="tags" placeholder="Tags" size="100"><br />
 
-            let post = {
-                title: document.forms[0].title.value,
-                description: document.forms[0].description.value,
-                content: JSON.stringify(document.forms[0].markdownText.value)
-            };
+    <label for="markdownText">Type markdown text</label><br />
+    <textarea name="markdownText"></textarea><br />
 
-            document.querySelector('#result').innerHTML = post;
+    <button onclick="
+      event.preventDefault();
 
-            console.log(post);
-        ">submit</button>
-    </form>
+      const mdToHtml = new showdown.Converter();
+      const content = document.forms[0].markdownText.value;
 
-    <div id="result"></div>
+      let post = {
+        _id: makeid(20),
+        title: document.forms[0].title.value,
+        description: document.forms[0].description.value,
+        date: new Date().toLocaleString('id'),
+        tags: document.forms[0].tags.value.split(', '),
+        content: content,
+        htmlContent: mdToHtml.makeHtml(content)
+      };
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js" integrity="sha512-L03kznCrNOfVxOUovR6ESfCz9Gfny7gihUX/huVbQB9zjODtYpxaVtIaAkpetoiyV2eqWbvxMH9fiSv5enX7bw==" crossorigin="anonymous"></script>
-    <script>
-        const mdToHtml = new showdown.Converter();
-    </script>
+      document.querySelector('#result').innerHTML = post;
+
+      console.log(post);
+    ">submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function makeid(length) {
+      var result           = '';
+      var characters       = '1234567890abcdef';
+      var charactersLength = characters.length;
+      for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    }
+  </script>
 </body>
 </html>
