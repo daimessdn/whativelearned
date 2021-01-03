@@ -13,8 +13,17 @@
     <link rel="stylesheet" href="src/css/main.css">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         input, textarea, button {
             font: 16px "Space Grotesk";
+            width: 100%;
+        }
+
+        textarea {
+            height: 500px;
         }
     </style>
 </head>
@@ -27,9 +36,7 @@
         <input type="text" name="description" placeholder="Description" size="100"><br />
 
         <label for="markdownText">Type markdown text</label><br />
-        <textarea name="markdownText"
-                  rows="40"
-                  cols="100"></textarea><br />
+        <textarea name="markdownText"></textarea><br />
 
         <button onclick="
             event.preventDefault();
@@ -42,10 +49,15 @@
 
             document.querySelector('#result').innerHTML = post;
 
-            console.log(JSON.stringify(post));
+            console.log(post);
         ">submit</button>
     </form>
 
     <div id="result"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js" integrity="sha512-L03kznCrNOfVxOUovR6ESfCz9Gfny7gihUX/huVbQB9zjODtYpxaVtIaAkpetoiyV2eqWbvxMH9fiSv5enX7bw==" crossorigin="anonymous"></script>
+    <script>
+        const mdToHtml = new showdown.Converter();
+    </script>
 </body>
 </html>
