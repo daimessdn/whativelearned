@@ -27,37 +27,35 @@ const generateTags = (tags) => {
 };
 
 
-
-hljs.initHighlightingOnLoad();
-
 document.addEventListener('DOMContentLoaded', (event) => {
+  hljs.initHighlightingOnLoad();
   generateQuotes();
     
   const container = document.querySelector(".posts");
 
-    fetchPosts().then(posts => {
-      posts.reverse().forEach((post) => {
-        container.innerHTML += `
-          <div class="post">
-            <details>
-              <summary class="post-header">
-                <h2>${post.title}</h2>
-                <p>Published on ${post.date}</p>
-                <p>${post.description}</p>
-                <div class="tags">${generateTags(post.tags)}</div>
-              </summary>
+  fetchPosts().then(posts => {
+    posts.reverse().forEach((post) => {
+      container.innerHTML += `
+        <div class="post">
+          <details>
+            <summary class="post-header">
+              <h2>${post.title}</h2>
+              <p>Published on ${post.date}</p>
+              <p>${post.description}</p>
+              <div class="tags">${generateTags(post.tags)}</div>
+            </summary>
 
-              <article class="content">
-                ${post.htmlContent}
-              </article>
-            </details>
-          </div>
-        `;
-      });  
+            <article class="content">
+              ${post.htmlContent}
+            </article>
+          </details>
+        </div>
+      `;
+    });  
+  
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
     });
-
-  document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
   });
 });
 
