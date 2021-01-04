@@ -130,7 +130,7 @@ details > summary::-webkit-details-marker {
   padding: 3px;
 }
 
-.content > p > code {
+.content code {
   background-color: #222;
   color: #fff;
   padding: 1px;
