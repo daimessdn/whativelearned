@@ -41,7 +41,7 @@ const homepage = `
       <li><a href="#"
              id="4e50d820e59b5791bb7a"
              onclick="
-              onNavigate(\`/\${this.id}\`);
+              onNavigate(\`/whativelearned/\${this.id}\`);
               event.preventDefault();"
           >Execute Python file using Nodejs</a></li>
     </ul>
@@ -57,7 +57,7 @@ const postpage = (posts, _id) => {
       <div class="back">
         <a href="#"
            onclick="
-             onNavigate('/');
+             onNavigate('/whativelearned');
              event.preventDefault();"
         >&#8592; back to home</a>
       </div>
@@ -72,7 +72,7 @@ const postpage = (posts, _id) => {
 };
 
 const routes = {
-  "/": homepage
+  "/whativelearned": homepage
 };
 
 const rootDiv = document.getElementById('root');
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   //       </div>
   //     `;
 
-      routes[`/${post._id}`] = postpage(posts, post._id);
+      routes[`/whativelearned/${post._id}`] = postpage(posts, post._id);
     });  
   
     document.querySelectorAll('pre code').forEach((block) => {
