@@ -124,7 +124,7 @@ pre {
   padding: 3px;
 }
 
-code {
+.content > p > code {
   background-color: #222;
   color: #fff;
   padding: 1px;
