@@ -72,7 +72,7 @@ const postpage = (posts, _id) => {
 };
 
 const routes = {
-  "/whativelearned": homepage
+  "/whativelearned/": homepage
 };
 
 const rootDiv = document.getElementById('root');
