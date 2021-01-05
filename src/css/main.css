@@ -9,11 +9,6 @@ body {
   margin: 0;
 }
 
-#root {
-  height: 100%;
-  box-sizing: border-box;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   margin-top: .5em;
@@ -57,22 +52,13 @@ header h1, .quotes {
   margin: 0 50px;
 }
 
-.links {
-  list-style: none;
-}
-
-.links a {
-  color: #fff;
-  text-decoration: none;
-}
-
-p, pre code, ul, ol {
+.post p, pre code, ul, ol {
   line-height: 1.7;
 }
 
 pre, code {
   font-family: "Roboto Mono", monospace;
-  border-radius: 3px;
+  border-radius: 5px;
   margin: 0;
 }
 
@@ -91,13 +77,29 @@ main {
   /* border: 1px solid #29335C; */
 }
 
-.back {
-  float: right;
+summary {
+  position: sticky;
+  top: 0;
+  line-height: 2;
+  outline: none;
+  min-height: 200px;
+
+  border: 1px solid #29335C;
+  border-left: 10px solid #29335C;
+  background-color: #FFF;
+  padding: 10px;
 }
 
-.back a {
-  color: black;
-  text-decoration: none;
+summary p {
+  margin-bottom: 3px;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
 }
 
 .tags {
@@ -113,25 +115,25 @@ main {
   margin: 0 2.5px;
 }
 
-p {
+.content {
+  margin: 10px 10px 20px 10px;
+}
+
+.content p {
   text-indent: 40px;
   margin: 3px 0;
 }
 
-pre {
+.content pre {
   overflow-x: auto;
-  font-size: 14px;
+  font-size: 16px;
   padding: 3px;
 }
 
-.content > p > code {
+.content code {
   background-color: #222;
   color: #fff;
   padding: 1px;
-}
-
-p code, li code {
-  font-size: 14px;
 }
 
 #sidebar {
